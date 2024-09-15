@@ -214,4 +214,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Re-center the container on window resize
     window.addEventListener('resize', centerContainer);
+
+    // Ensure the container does not resize below the minimum dimensions
+    const minWidth = 300; // Példa minimális szélesség
+    const minHeight = 200; // Példa minimális magasság
+
+    const enforceMinSize = () => {
+        const containerWidth = draggableContainer.offsetWidth;
+        const containerHeight = draggableContainer.offsetHeight;
+
+        if (containerWidth < minWidth) {
+            draggableContainer.style.width = `${minWidth}px`;
+        }
+        if (containerHeight < minHeight) {
+            draggableContainer.style.height = `${minHeight}px`;
+        }
+    };
+
+    window.addEventListener('resize', enforceMinSize);
+    enforceMinSize(); // Ensure the initial size is enforced
 });
