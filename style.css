@@ -1,11 +1,16 @@
+/* Animáció a terminálhoz */
 @keyframes terminalFadeIn {
   0% {
-    opacity: 0;
-    transform: scale(0.8);
+      opacity: 0;
+      transform: scale(0.8);
+      justify-content: center;
+      align-items: center;
   }
   100% {
-    opacity: 1;
-    transform: scale(1);
+      opacity: 1;
+      transform: scale(1);
+      justify-content: center;
+      align-items: center;
   }
 }
 
@@ -35,10 +40,14 @@ a {
 
 @keyframes blink {
   from, to {
-    visibility: visible;
+      visibility: visible;
+      justify-content: center;
+      align-items: center;
   }
   50% {
-    visibility: hidden;
+      visibility: hidden;
+      justify-content: center;
+      align-items: center;
   }
 }
 
@@ -68,23 +77,26 @@ a {
   border-radius: 16px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
   color: #1ae127;
-  font-size: 16px; /* Reduced font size */
-  width: 800px; /* Reduced width */
-  height: 450px; /* Reduced height */
+  font-size: 15px;
+  width: 1000px;
+  height: 550px;
   position: absolute;
   overflow: hidden;
   resize: both;
   max-width: 100%;
   max-height: 100vh;
-  min-width: 300px;
-  min-height: 400px;
+  min-width: 1000px;
+  min-height: 550px;
   box-sizing: border-box;
+  /* Animáció indítása */
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.8); /* Combine transformations */
+  transform: scale(0.8);
   transform-origin: center; /* Ensure the animation starts from the center */
   animation: terminalFadeIn 1.5s ease-out forwards;
   left: 50%;
   top: 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Header */
@@ -141,24 +153,9 @@ a {
   align-items: center;
   margin-bottom: 15px;
   font-family: monospace;
-  white-space: pre-wrap; /* Allow line breaks */
-  word-wrap: break-word; /* Break long words */
+  white-space: pre;
 }
 
 .body__row-arrow {
   color: #1ae127;
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width: 480px) {
-  .mac-terminal {
-    font-size: 12px; /* Further reduced font size for mobile */
-    width: 90%;
-    height: 90%;
-    min-width: unset;
-    min-height: unset;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.8); /* Combine transformations */
-  }
 }
