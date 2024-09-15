@@ -233,4 +233,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', enforceMinSize);
     enforceMinSize(); // Ensure the initial size is enforced
+
+
+    
+    window.addEventListener('resize', function() {
+        const terminal = document.querySelector('.mac-terminal');
+        const viewportHeight = window.innerHeight;
+        const terminalHeight = terminal.offsetHeight;
+      
+        // Ha a viewport magassága kisebb, mint a terminál magassága, akkor a terminált feljebb toljuk
+        if (viewportHeight < terminalHeight) {
+          terminal.style.top = '10px';
+        } else {
+          terminal.style.top = '50%';
+          terminal.style.transform = 'translate(-50%, -50%)';
+        }
+      });
+      
+      // Kezdeti beállítás
+      window.dispatchEvent(new Event('resize'));
+
 });
+
