@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const terminal = document.querySelector('.mac-terminal');
     let currentInput = '';
     const disclaimerText = 'Igen is vannak bugok a weboldalon de ha valami történik egy oldal refresh megoldhatja a problémát';
-    const aboutText = 'Ez az iskoláról egy archív weboldal lesz, és idővel bővítve lesz, stb. Lesz még pár vicces/furcsa funkció is beépítve. Nincs végtelen időm, de ahogy tudom, csinálgatni fogom.<br>zsombi9.b';
+    const aboutText = 'Ez az iskoláról egy archív weboldal lesz, és idővel bővítve lesz, stb. Lesz még pár vicces/furcsa funkció is beépítve. Nincs végtelen időm, de ahogy tudom, csinálgatni fogom.<br>@zsombi9.b';
     const audioPlayer = document.getElementById('audio-player');
     const commandHistory = [];
     let historyIndex = -1;
