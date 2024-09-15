@@ -171,5 +171,7 @@ a {
     min-height: unset;
     left: 5%;
     top: 5%;
+    transform: translateY(calc(-100vh + 50px));
+    transform: translateY(-50px);
   }
 }
