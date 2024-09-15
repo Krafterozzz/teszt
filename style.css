@@ -85,8 +85,8 @@ a {
   resize: both;
   max-width: 100%;
   max-height: 100vh;
-  min-width: 1000px;
-  min-height: 550px;
+  min-width: 300px; /* Minimum width for small screens */
+  min-height: 200px; /* Minimum height for small screens */
   box-sizing: border-box;
   /* Animáció indítása */
   opacity: 0;
@@ -161,11 +161,14 @@ a {
   color: #1ae127;
 }
 
-@media (max-width: 768px) {
+/* Mobile View Adjustments */
+@media (max-width: 600px) {
   .mac-terminal {
-      width: 90%;
-      height: 70%;
-      min-width: unset;
-      min-height: unset;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 10px;
+    min-width: 0; /* Override minimum width for small screens */
+    min-height: 0; /* Override minimum height for small screens */
   }
 }
