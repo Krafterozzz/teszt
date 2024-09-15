@@ -161,30 +161,11 @@ a {
   color: #1ae127;
 }
 
-/* ... (previous CSS rules remain unchanged) ... */
-
-/* Media Queries for Responsive Design */
-@media (max-width: 480px) {   
+@media (max-width: 768px) {
   .mac-terminal {
-    font-size: 13px;
-    width: 90%;
-    height: auto;
-    max-height: 80vh;
-    min-height: 200px;
-    left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    position: fixed;
-    transition: top 0.3s ease, transform 0.3s ease;
-  }
-
-  .mac-terminal.keyboard-visible {
-    transform: none;
-    bottom: 10px;
-  }
-
-  .body {
-    max-height: calc(80vh - 50px);
-    overflow-y: auto;
+      width: 90%;
+      height: 70%;
+      min-width: unset;
+      min-height: unset;
   }
 }
