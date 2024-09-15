@@ -168,28 +168,23 @@ a {
   .mac-terminal {
     font-size: 13px;
     width: 90%;
-    height: 45%;
-    min-width: unset;
-    min-height: unset;
+    height: auto;
+    max-height: 80vh;
+    min-height: 200px;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
     position: fixed;
-    transition: transform 0.3s ease;
+    transition: top 0.3s ease, transform 0.3s ease;
   }
 
   .mac-terminal.keyboard-visible {
-    transform: translateY(-70%); /* Move up more when keyboard is visible */
+    transform: none;
+    bottom: 10px;
   }
-}
 
-/* Additional rules for better compatibility */
-@media (max-width: 480px) and (max-height: 600px) {
-  .mac-terminal {
-    height: 60%; /* Larger height on very small screens */
-  }
-  
-  .mac-terminal.keyboard-visible {
-    transform: translateY(-80%); /* Move up even more on small screens */
+  .body {
+    max-height: calc(80vh - 50px);
+    overflow-y: auto;
   }
 }
