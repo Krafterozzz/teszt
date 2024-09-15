@@ -164,7 +164,7 @@ a {
 /* Media Queries for Responsive Design */
 @media (max-width: 480px) {   
   .mac-terminal {
-    font-size: 15px; /* Further reduced font size for mobile */
+    font-size: 13px; /* Further reduced font size for mobile */
     width: 90%;
     height: 90%;
     min-width: unset;
