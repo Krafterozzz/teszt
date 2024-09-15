@@ -234,80 +234,28 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', enforceMinSize);
     enforceMinSize(); // Ensure the initial size is enforced
 
+// JavaScript to handle keyboard visibility changes
+let isKeyboardVisible = false;
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // ... (meglévő kód marad változatlan) ...
-    
-        const terminal = document.querySelector('.mac-terminal');
-        let lastPosition = { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' };
-        let isKeyboardVisible = false;
-    
-        function updateTerminalPosition() {
-            const viewportHeight = window.innerHeight;
-            const terminalRect = terminal.getBoundingClientRect();
-    
-            if (viewportHeight < window.outerHeight * 0.8 && !isKeyboardVisible) {
-                // Billentyűzet megjelent
-                isKeyboardVisible = true;
-                lastPosition = {
-                    top: terminal.style.top,
-                    left: terminal.style.left,
-                    transform: terminal.style.transform
-                };
-                terminal.style.top = `${viewportHeight - terminalRect.height - 20}px`;
-                terminal.style.left = '50%';
-                terminal.style.transform = 'translateX(-50%)';
-            } else if (viewportHeight >= window.outerHeight * 0.8 && isKeyboardVisible) {
-                // Billentyűzet eltűnt
-                isKeyboardVisible = false;
-                terminal.style.top = lastPosition.top;
-                terminal.style.left = lastPosition.left;
-                terminal.style.transform = lastPosition.transform;
-            }
-        }
-    
-        // Eseményfigyelők hozzáadása
-        window.addEventListener('resize', updateTerminalPosition);
-        visibleInput.addEventListener('focus', updateTerminalPosition);
-        visibleInput.addEventListener('blur', function() {
-            setTimeout(updateTerminalPosition, 300); // Késleltetés a billentyűzet eltűnésének detektálására
-        });
-    
-        // Terminál mozgatásának kezelése
-        let isDragging = false;
-        let startX, startY, startTop, startLeft;
-    
-        terminal.addEventListener('mousedown', function(e) {
-            if (e.target === draggableHeader) {
-                isDragging = true;
-                startX = e.clientX;
-                startY = e.clientY;
-                startTop = terminal.offsetTop;
-                startLeft = terminal.offsetLeft;
-            }
-        });
-    
-        document.addEventListener('mousemove', function(e) {
-            if (isDragging) {
-                const deltaX = e.clientX - startX;
-                const deltaY = e.clientY - startY;
-                terminal.style.top = `${startTop + deltaY}px`;
-                terminal.style.left = `${startLeft + deltaX}px`;
-                terminal.style.transform = 'none';
-                lastPosition = {
-                    top: terminal.style.top,
-                    left: terminal.style.left,
-                    transform: 'none'
-                };
-            }
-        });
-    
-        document.addEventListener('mouseup', function() {
-            isDragging = false;
-        });
-    
+function adjustTerminalPosition() {
+  const terminal = document.querySelector('.mac-terminal');
+  if (isKeyboardVisible) {
+    terminal.style.top = '10px'; // Adjust this value based on the keyboard height
+  } else {
+    terminal.style.top = 'calc(50% - 100px)'; // Original position
+  }
+}
 
-    });
+function checkKeyboardVisibility() {
+  const initialHeight = window.innerHeight;
+  window.addEventListener('resize', () => {
+    const newHeight = window.innerHeight;
+    isKeyboardVisible = newHeight < initialHeight;
+    adjustTerminalPosition();
+  });
+}
 
+document.addEventListener('DOMContentLoaded', checkKeyboardVisibility);
+   
 });
 
