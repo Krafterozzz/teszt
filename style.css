@@ -94,9 +94,10 @@ a {
   transform-origin: center; /* Ensure the animation starts from the center */
   animation: terminalFadeIn 1.5s ease-out forwards;
   left: 50%;
-  top: calc(50% - 100px); /* Move 100 pixels higher */
+  top: calc(50% - 100px); /* Original position */
   justify-content: center;
   align-items: center;
+  transition: top 0.3s ease-in-out; /* Smooth transition for position changes */
 }
 
 /* Header */
